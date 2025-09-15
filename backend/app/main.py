@@ -12,19 +12,6 @@ from typing import Set
 # in-memory websocket connections
 connected: Set[WebSocket] = set()
 
-
-async def broadcast(message: str):
-    """Send message to all connected clients, removing dead ones."""
-    dead = []
-    for ws in list(connected):
-        try:
-            await ws.send_text(message)
-        except Exception:
-            dead.append(ws)
-    for ws in dead:
-        connected.remove(ws)
-
-
 consumer_task = None
 
 
