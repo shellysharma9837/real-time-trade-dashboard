@@ -65,20 +65,21 @@ POSTGRES_DB=trades_db
 2. Build and start all services:
 
 ```bash
-docker-compose up --build
-
+docker-compose up --build 
+```
 3. Access the apps:
 
+```bash
 Backend (FastAPI): http://localhost:8000
 
 Frontend (React): http://localhost:3000
-
+```
 Docker will start Postgres, Kafka, Backend, and Frontend automatically.
 
-WebSocket Usage
+4. WebSocket Usage
 
 Connect to the backend WebSocket for real-time updates:
-
+```
 const ws = new WebSocket("ws://localhost:8000/ws");
 
 ws.onmessage = (event) => {
@@ -87,7 +88,7 @@ ws.onmessage = (event) => {
 };
 
 ws.onopen = () => ws.send("ping");
-
+```
 
 API Endpoints
 Route	Method	Description
