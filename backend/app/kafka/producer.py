@@ -29,13 +29,4 @@ async def produce_trade(trade):
         }
         await prod.send_and_wait(KAFKA_TOPIC, json.dumps(payload).encode("utf-8"))
     except Exception as e:
-        # fallback: print (in production use structured logging & retry)
         print("Kafka produce error:", e)
-
-#Frontend submits a trade → /trades POST endpoint.
-
-#Backend saves trade in DB → calls await produce_trade(db_trade).
-
-#produce_trade sends the trade to Kafka topic.
-
-#Kafka consumer (in consumer.py) receives it → processes → broadcasts via WebSocket.
