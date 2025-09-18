@@ -51,18 +51,3 @@ async def start_consumer(broadcaster):
                     pass
     finally:
         await consumer.stop()
-
-
-#🔥 Visual flow of what happens
-
-#Frontend submits trade → FastAPI saves to DB → sends trade to Kafka.
-
-#Kafka consumer (this file) picks it up.
-
-#Runs analyze_trade → maybe creates alerts.
-
-#Saves alerts to DB.
-
-#Broadcasts alerts + trades to all WebSocket clients.
-
-#Dashboard updates in real-time ✨.
