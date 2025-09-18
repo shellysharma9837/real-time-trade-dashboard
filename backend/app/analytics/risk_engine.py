@@ -16,5 +16,4 @@ def analyze_trade(trade_payload: dict):
             "message": f"Large notional trade detected: {notional}",
             "value": notional
         })
-    # placeholder: compute VaR or exposure here and append alerts if needed
     return alerts
